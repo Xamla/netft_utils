@@ -1,0 +1,12 @@
+<launch>
+  <arg name="ip_address" value="192.168.50.39"/>
+  <arg name="world_frame" value="world_frame"/>
+  <arg name="ft_frame" value="ft_frame"/>
+
+  <node name="netft_connection_node" pkg="netft_utils" type="netft_node" args="--address $(arg ip_address) "/>
+
+  <!-- launching services - frame names must be provided-->
+  <node name="netft_utils_services" pkg="netft_utils" type="netft_utils" args="$(arg world_frame)   $(arg ft_frame)"/>
+
+</launch>
+
